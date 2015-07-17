@@ -56,12 +56,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
-:host {
+.sticker {
+  display: none;
   position: absolute;
   z-index: 1000000;
-}
-
-.sticker {
   width: 200px;
   background: #109926;
   padding-bottom: 25px;
