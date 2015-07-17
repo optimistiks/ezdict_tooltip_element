@@ -1,0 +1,19 @@
+{
+  "name": "ezdict_tooltip_element",
+  "version": "0.1.0",
+  "description": "An element providing a solution to no problem in particular.",
+  "main": "ezdict_tooltip_element.html",
+  "homepage": "https://github.com/optimistiks/ezdict_tooltip_element/",
+  "ignore": [
+    "/.*",
+    "/test/",
+    "/demo/"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.0.0"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "web-component-tester": "*"
+  }
+}
