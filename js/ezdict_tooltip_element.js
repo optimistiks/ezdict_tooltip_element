@@ -5,10 +5,24 @@ Polymer({
   },
 
   ready: function () {
+    var element = this;
+
     $(this.$.st_translate).slimScroll({
       distance: '5px',
       height: '100%',
       size: '4px'
+    });
+
+    $(element.$$('.slide-down-btn')).on('click', function () {
+      if (!$(element.$$('.st-translate')).hasClass('large')) {
+        $(this).toggleClass('slide-up');
+        $(element.$$('.st-translate')).toggleClass('large');
+        $(element.$$('.like-it')).stop().fadeIn();
+      } else {
+        $(this).toggleClass('slide-up');
+        $(element.$$('.st-translate')).toggleClass('large').scrollTop(0);
+        $(element.$$('.like-it')).stop().hide();
+      }
     });
 
     $(this.$.close_sticker).on('click', function () {
