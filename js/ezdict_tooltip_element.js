@@ -5,12 +5,11 @@ Polymer({
   },
 
   ready: function () {
-    // `ready` is called after all elements have been configured, but
-    // propagates bottom-up. This element's children are ready, but parents
-    // are not.
-    //
-    // This is the point where you should make modifications to the DOM (when
-    // necessary), or kick off any processes the element wants to perform.
+    $(this.$.st_translate).slimScroll({
+      distance: '5px',
+      height: '100%',
+      size: '4px'
+    });
   },
 
   attached: function () {
@@ -34,18 +33,18 @@ Polymer({
   },
 
   setTop: function (top) {
-    this.$$('#sticker').style.top = top;
+    this.$.sticker.style.top = top;
   },
 
   setLeft: function (left) {
-    this.$$('#sticker').style.left = left;
+    this.$.sticker.style.left = left;
   },
 
-  hide: function (left) {
-    this.$$('#sticker').style.display = 'none';
+  hide: function () {
+    this.$.sticker.style.display = 'none';
   },
 
-  show: function (left) {
-    this.$$('#sticker').style.display = 'block';
+  show: function () {
+    this.$.sticker.style.display = 'block';
   }
 });
