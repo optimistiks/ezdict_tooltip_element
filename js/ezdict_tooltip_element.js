@@ -10,6 +10,10 @@ Polymer({
       height: '100%',
       size: '4px'
     });
+
+    $(this.$.close_sticker).on('click', function () {
+      $(this.$.sticker).hide();
+    }.bind(this));
   },
 
   attached: function () {
