@@ -13,6 +13,22 @@ Polymer({
       size: '4px'
     });
 
+    var $stSourceBtns = $(element.shadowRoot).find('.st-source-btn');
+    var $stSourceTranslates = $(element.shadowRoot).find('.st-source-translate');
+
+    $stSourceBtns.on('click', function () {
+      if (!$(this).hasClass('active')) {
+        $stSourceBtns.removeClass('active');
+        $(this).addClass('active');
+        var index = $(this).index();
+        $stSourceTranslates.stop().hide().promise().done(function () {
+          $(element.$.st_translate).scrollTop(0);
+          $stSourceTranslates.eq(index).stop().fadeIn(200);
+        });
+        $(element.$.sticker).find('.slimScrollBar').animate({'top': '0'}, 300);
+      }
+    });
+
     $(element.$$('.slide-down-btn')).on('click', function () {
       if (!$(element.$$('.st-translate')).hasClass('large')) {
         $(this).toggleClass('slide-up');
