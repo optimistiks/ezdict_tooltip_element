@@ -1,11 +1,33 @@
 Polymer({
   is: 'ezdict-tooltip-element',
   properties: {
+    jq: Object,
     translation: String
   },
 
   ready: function () {
+
+  },
+
+  attached: function () {
+    // `attached` fires once the element and its parents have been inserted
+    // into a document.
+    //
+    // This is a good place to perform any work related to your element's
+    // visual state or active behavior (measuring sizes, beginning animations,
+    // loading resources, etc).
+  },
+
+  detached: function () {
+    // The analog to `attached`, `detached` fires when the element has been
+    // removed from a document.
+    //
+    // Use this to clean up anything you did in `attached`.
+  },
+
+  init: function () {
     var element = this;
+    var $ = this.jq;
 
     $(this.$.st_translate).slimScroll({
       distance: '5px',
@@ -46,20 +68,8 @@ Polymer({
     }.bind(this));
   },
 
-  attached: function () {
-    // `attached` fires once the element and its parents have been inserted
-    // into a document.
-    //
-    // This is a good place to perform any work related to your element's
-    // visual state or active behavior (measuring sizes, beginning animations,
-    // loading resources, etc).
-  },
-
-  detached: function () {
-    // The analog to `attached`, `detached` fires when the element has been
-    // removed from a document.
-    //
-    // Use this to clean up anything you did in `attached`.
+  setJquery: function (jQuery) {
+    this.jq = jQuery;
   },
 
   setTranslation: function (translation) {

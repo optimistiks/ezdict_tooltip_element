@@ -32,6 +32,8 @@
 
     <script>
       var tooltip = document.querySelector('ezdict-tooltip-element');
+      tooltip.setJquery($);
+      tooltip.init();
       tooltip.setTop('50%');
       tooltip.setLeft('50%');
       tooltip.show();
