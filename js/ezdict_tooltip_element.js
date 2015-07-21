@@ -6,7 +6,7 @@ Polymer({
   },
 
   ready: function () {
-
+    this.fire(this._buildEventName('ready'));
   },
 
   attached: function () {
@@ -23,6 +23,10 @@ Polymer({
     // removed from a document.
     //
     // Use this to clean up anything you did in `attached`.
+  },
+
+  _buildEventName: function (name) {
+    return 'ezdict-tooltip-element_' + name;
   },
 
   init: function () {
