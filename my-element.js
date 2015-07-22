@@ -75,7 +75,7 @@
         },
 
         setTranslation: function (translation) {
-          console.log('translation set');
+          this.$shadowRoot.find('#ezdict-sticker').text(translation);
         },
 
         setTop: function (top) {
