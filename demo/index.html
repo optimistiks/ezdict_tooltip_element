@@ -1,42 +1,42 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>ezdict-tooltip-element Demo</title>
-    <style>
-      @font-face {
-        font-family: 'WebHostingHub-Glyphs';
-        src: url('../font/webhostinghub-glyphs.eot');
-        src: url('../font/webhostinghub-glyphs.eot?#iefix') format('embedded-opentype'),
-        url('../font/webhostinghub-glyphs.ttf') format('truetype');
-        font-weight: normal;
-        font-style: normal;
-        -moz-font-feature-settings: "calt=0,liga=0";
-      }
-    </style>
-    <script type="text/javascript" src="../bower_components/jquery/jquery.min.js"></script>
-    <script type="text/javascript" src="../bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-    <script type="text/javascript" src="../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
-    <script>
-      window.Polymer = window.Polymer || {};
-      window.Polymer.dom = 'shadow';
-    </script>
-    <link rel="import" href="../ezdict_tooltip_element_dev.html">
-  </head>
-  <body>
-
-    <p>An example of <code>&lt;ezdict-tooltip-element&gt;</code>:</p>
-
-    <ezdict-tooltip-element translation="Привет мир Привет мир Привет мир Привет мир Привет мир Привет мир Привет мир Привет мир"></ezdict-tooltip-element>
-
-    <script>
-      var tooltip = document.querySelector('ezdict-tooltip-element');
-      tooltip.setJquery($);
-      tooltip.init();
-      tooltip.setTop('50%');
-      tooltip.setLeft('50%');
-      tooltip.show();
-    </script>
-
-  </body>
+<head>
+  <meta charset="utf-8">
+  <title>&lt;ezdict-tooltip-element&gt;</title>
+  <style>
+    @font-face {
+      font-family: 'WebHostingHub-Glyphs';
+      src: url('../font/webhostinghub-glyphs.eot');
+      src: url('../font/webhostinghub-glyphs.eot?#iefix') format('embedded-opentype'),
+      url('../font/webhostinghub-glyphs.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+      -moz-font-feature-settings: "calt=0,liga=0";
+    }
+  </style>
+  <script type="text/javascript" src="../bower_components/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="../bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+  <script src="../bower_components/webcomponentsjs/webcomponents.min.js"></script>
+  <script src="../bower_components/x-tag-core/src/core.js"></script>
+  <script src="../js/element.js"></script>
+  <script>
+    $(document).ready(function () {
+      $.get('../html/content.html').done(function (content) {
+        ezdictTooltipElement.register(content);
+        xtag.addEvent(window, 'ezdict-tooltip-element_inserted', function() {
+          var tooltip = document.querySelector('ezdict-tooltip-element');
+          tooltip.setJquery($);
+          tooltip.init();
+          tooltip.setTop('50%');
+          tooltip.setLeft('50%');
+          tooltip.setTranslation('Hello world');
+          tooltip.show();
+        });
+        document.body.appendChild(document.createElement('ezdict-tooltip-element'));
+      });
+    })
+  </script>
+</head>
+<body>
+</body>
 </html>
