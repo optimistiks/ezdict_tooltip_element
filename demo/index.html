@@ -17,7 +17,7 @@
   <script type="text/javascript" src="../bower_components/jquery/jquery.min.js"></script>
   <script type="text/javascript" src="../bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
   <script type="text/javascript" src="../bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-  <script type="text/javascript" src="../bower_components/handlebars/handlebars.runtime.min.js"></script>
+  <script type="text/javascript" src="../bower_components/handlebars/handlebars.min.js"></script>
   <script type="text/javascript" src="../bower_components/i18next/i18next.min.js"></script>
   <script type="text/javascript" src="../js/handlebars-helper.js"></script>
   <script type="text/javascript" src="../html/template/compiled.js"></script>
@@ -26,6 +26,8 @@
   <script src="../js/element.js"></script>
   <script>
     $(document).ready(function () {
+      ezdictTooltipElement.setDebug(true);
+      ezdictTooltipElement.setLocale('ru');
       ezdictTooltipElement.register();
       xtag.addEvent(window, 'ezdict-tooltip-element_inserted', function () {
         var tooltip = document.querySelector('ezdict-tooltip-element');
