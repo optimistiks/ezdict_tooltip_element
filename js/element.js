@@ -1,7 +1,7 @@
 var ezdictTooltipElement = {
   locale: 'en',
   debug: false,
-  localesPath: '../_locales'
+  pathPrefix: '..'
 };
 
 ezdictTooltipElement.setLocale = function (locale) {
@@ -12,8 +12,8 @@ ezdictTooltipElement.setDebug = function (debug) {
   this.debug = debug;
 };
 
-ezdictTooltipElement.setLocalesPath = function (path) {
-  this.localesPath = path;
+ezdictTooltipElement.setPathPrefix = function (path) {
+  this.pathPrefix = path;
 };
 
 ezdictTooltipElement.getHtml = function () {
@@ -35,7 +35,7 @@ ezdictTooltipElement.register = function () {
     lng: this.locale,
     fallbackLng: false,
     ns: 'messages',
-    resGetPath: this.localesPath + '/__lng__/__ns__.json'
+    resGetPath: this.pathPrefix + '/_locales/__lng__/__ns__.json'
   }, function (err, t) {
     this.getHtml().done(function (html) {
       xtag.register('ezdict-tooltip-element', {
