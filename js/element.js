@@ -137,7 +137,9 @@ ezdictTooltipElement.register = function () {
           },
 
           setIsLoading: function (isLoading) {
-            this.viewData.counter = null;
+            if (isLoading) {
+              this.viewData.counter = null;
+            }
             this.viewData.isLoading = !!isLoading;
             return this;
           },
@@ -149,12 +151,14 @@ ezdictTooltipElement.register = function () {
           },
 
           setError: function (error) {
-            this.viewData.counter = null;
+            if (error) {
+              this.viewData.counter = null;
+            }
             this.viewData.error = error;
             return this;
           },
 
-          redraw: function() {
+          redraw: function () {
             ezdictTooltipElement.getTooltipHtml(this.viewData).done(function (html) {
               this.$shadowRoot.find('#sticker').html(html);
               this.init();
