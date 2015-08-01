@@ -1,14 +1,16 @@
 <div class="slide-down-btn"><i class="icon-circleup"></i></div>
 <div class="counter warning5" title="{{ t 'counterTitle' }}">
   <p id="counter">
+    {{#if translation.translation_history}}
+      {{ translation.translation_history.count }}
+    {{else}}
+      -
+    {{/if}}
     {{#if isLoading}}
       -
-    {{else}}
-      {{#if translation.translation_history}}
-        {{ translation.translation_history.count }}
-      {{else}}
-        -
-      {{/if}}
+    {{/if}}
+    {{#if error}}
+      -
     {{/if}}
   </p>
 </div>
@@ -37,31 +39,35 @@
 <div class="st-translate" id="st_translate">
   <div class="st-source-translate" id="user-sticker"></div>
   <div class="st-source-translate" id="ezdict-sticker">
-    {{#if isLoading}}
-      <p>{{ t 'loading' }}</p>
+    {{#if error}}
+      {{ error }}
     {{else}}
-      {{#if translation.ya_dict}}
-        <ul>
-          {{#each translation.ya_dict.def}}
-            <li>
-              <p>[{{ this.ts }}]</p>
-              {{#each this.tr}}
-                <p>{{ this.text }}</p>
-                {{#if this.syn.length}}<br>{{/if}}
-                <p>{{#each this.syn}}{{ this.text }}{{#unless @last}}, {{/unless}}{{/each}}</p>
-                {{#if this.ex.length}}<br>{{/if}}
-                <ul>
-                  {{#each this.ex}}
-                    <li>{{ this.text }} - {{ this.tr.0.text }}</li>
-                  {{/each}}
-                </ul>
-                <br>
-              {{/each}}
-            </li>
-          {{/each}}
-        </ul>
+      {{#if isLoading}}
+        <p>{{ t 'loading' }}</p>
       {{else}}
-        <p>{{ translation.translation }}</p>
+        {{#if translation.ya_dict}}
+          <ul>
+            {{#each translation.ya_dict.def}}
+              <li>
+                <p>[{{ this.ts }}]</p>
+                {{#each this.tr}}
+                  <p>{{ this.text }}</p>
+                  {{#if this.syn.length}}<br>{{/if}}
+                  <p>{{#each this.syn}}{{ this.text }}{{#unless @last}}, {{/unless}}{{/each}}</p>
+                  {{#if this.ex.length}}<br>{{/if}}
+                  <ul>
+                    {{#each this.ex}}
+                      <li>{{ this.text }} - {{ this.tr.0.text }}</li>
+                    {{/each}}
+                  </ul>
+                  <br>
+                {{/each}}
+              </li>
+            {{/each}}
+          </ul>
+        {{else}}
+          <p>{{ translation.translation }}</p>
+        {{/if}}
       {{/if}}
     {{/if}}
   </div>

@@ -146,6 +146,11 @@ ezdictTooltipElement.register = function () {
             return this;
           },
 
+          setError: function (error) {
+            this.viewData.error = error;
+            return this;
+          },
+
           redraw: function() {
             ezdictTooltipElement.getTooltipHtml(this.viewData).done(function (html) {
               this.$shadowRoot.find('#sticker').html(html);

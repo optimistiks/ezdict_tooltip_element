@@ -8,21 +8,25 @@ templates['content'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":functio
     + "</div>\n";
 },"usePartial":true,"useData":true});
 templates['tooltip'] = template({"1":function(depth0,helpers,partials,data) {
-    return "      -\n";
-},"3":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = helpers['if'].call(depth0,((stack1 = (depth0 != null ? depth0.translation : depth0)) != null ? stack1.translation_history : stack1),{"name":"if","hash":{},"fn":this.program(4, data, 0),"inverse":this.program(6, data, 0),"data":data})) != null ? stack1 : "");
-},"4":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return "        "
+  return "      "
     + this.escapeExpression(this.lambda(((stack1 = ((stack1 = (depth0 != null ? depth0.translation : depth0)) != null ? stack1.translation_history : stack1)) != null ? stack1.count : stack1), depth0))
     + "\n";
-},"6":function(depth0,helpers,partials,data) {
-    return "        -\n";
+},"3":function(depth0,helpers,partials,data) {
+    return "      -\n";
+},"5":function(depth0,helpers,partials,data) {
+    var helper;
+
+  return "      "
+    + this.escapeExpression(((helper = (helper = helpers.error || (depth0 != null ? depth0.error : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"error","hash":{},"data":data}) : helper)))
+    + "\n";
+},"7":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.isLoading : depth0),{"name":"if","hash":{},"fn":this.program(8, data, 0),"inverse":this.program(10, data, 0),"data":data})) != null ? stack1 : "");
 },"8":function(depth0,helpers,partials,data) {
-    return "      <p>"
+    return "        <p>"
     + this.escapeExpression((helpers.t || (depth0 && depth0.t) || helpers.helperMissing).call(depth0,"loading",{"name":"t","hash":{},"data":data}))
     + "</p>\n";
 },"10":function(depth0,helpers,partials,data) {
@@ -32,31 +36,31 @@ templates['tooltip'] = template({"1":function(depth0,helpers,partials,data) {
 },"11":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return "        <ul>\n"
+  return "          <ul>\n"
     + ((stack1 = helpers.each.call(depth0,((stack1 = ((stack1 = (depth0 != null ? depth0.translation : depth0)) != null ? stack1.ya_dict : stack1)) != null ? stack1.def : stack1),{"name":"each","hash":{},"fn":this.program(12, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "        </ul>\n";
+    + "          </ul>\n";
 },"12":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return "            <li>\n              <p>["
+  return "              <li>\n                <p>["
     + this.escapeExpression(this.lambda((depth0 != null ? depth0.ts : depth0), depth0))
     + "]</p>\n"
     + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.tr : depth0),{"name":"each","hash":{},"fn":this.program(13, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "            </li>\n";
+    + "              </li>\n";
 },"13":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return "                <p>"
+  return "                  <p>"
     + this.escapeExpression(this.lambda((depth0 != null ? depth0.text : depth0), depth0))
-    + "</p>\n                "
+    + "</p>\n                  "
     + ((stack1 = helpers['if'].call(depth0,((stack1 = (depth0 != null ? depth0.syn : depth0)) != null ? stack1.length : stack1),{"name":"if","hash":{},"fn":this.program(14, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "\n                <p>"
+    + "\n                  <p>"
     + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.syn : depth0),{"name":"each","hash":{},"fn":this.program(16, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "</p>\n                "
+    + "</p>\n                  "
     + ((stack1 = helpers['if'].call(depth0,((stack1 = (depth0 != null ? depth0.ex : depth0)) != null ? stack1.length : stack1),{"name":"if","hash":{},"fn":this.program(14, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "\n                <ul>\n"
+    + "\n                  <ul>\n"
     + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.ex : depth0),{"name":"each","hash":{},"fn":this.program(19, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "                </ul>\n                <br>\n";
+    + "                  </ul>\n                  <br>\n";
 },"14":function(depth0,helpers,partials,data) {
     return "<br>";
 },"16":function(depth0,helpers,partials,data) {
@@ -69,7 +73,7 @@ templates['tooltip'] = template({"1":function(depth0,helpers,partials,data) {
 },"19":function(depth0,helpers,partials,data) {
     var stack1, alias1=this.lambda, alias2=this.escapeExpression;
 
-  return "                    <li>"
+  return "                      <li>"
     + alias2(alias1((depth0 != null ? depth0.text : depth0), depth0))
     + " - "
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.tr : depth0)) != null ? stack1['0'] : stack1)) != null ? stack1.text : stack1), depth0))
@@ -77,7 +81,7 @@ templates['tooltip'] = template({"1":function(depth0,helpers,partials,data) {
 },"21":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return "        <p>"
+  return "          <p>"
     + this.escapeExpression(this.lambda(((stack1 = (depth0 != null ? depth0.translation : depth0)) != null ? stack1.translation : stack1), depth0))
     + "</p>\n";
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
@@ -86,7 +90,9 @@ templates['tooltip'] = template({"1":function(depth0,helpers,partials,data) {
   return "<div class=\"slide-down-btn\"><i class=\"icon-circleup\"></i></div>\n<div class=\"counter warning5\" title=\""
     + alias2((helpers.t || (depth0 && depth0.t) || alias1).call(depth0,"counterTitle",{"name":"t","hash":{},"data":data}))
     + "\">\n  <p id=\"counter\">\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.isLoading : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers['if'].call(depth0,((stack1 = (depth0 != null ? depth0.translation : depth0)) != null ? stack1.translation_history : stack1),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.isLoading : depth0),{"name":"if","hash":{},"fn":this.program(3, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.error : depth0),{"name":"if","hash":{},"fn":this.program(3, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "  </p>\n</div>\n<div class=\"control-panel left\">\n  <div class=\"st-btn-wrap\" title=\""
     + alias2((helpers.t || (depth0 && depth0.t) || alias1).call(depth0,"editTranslationTitle",{"name":"t","hash":{},"data":data}))
     + "\">\n    <div class=\"st-btn edit\"><i class=\"icon-pen\"></i></div>\n  </div>\n  <div class=\"st-btn-wrap\" title=\""
@@ -104,7 +110,7 @@ templates['tooltip'] = template({"1":function(depth0,helpers,partials,data) {
     + "\"><i class=\"icon-notebook\"></i></div>\n  <div class=\"st-source-btn best \" title=\""
     + alias2((helpers.t || (depth0 && depth0.t) || alias1).call(depth0,"bestUserTranslationTitle",{"name":"t","hash":{},"data":data}))
     + "\"><i class=\"icon-star-empty\"></i></div>\n</div>\n<div class=\"st-translate\" id=\"st_translate\">\n  <div class=\"st-source-translate\" id=\"user-sticker\"></div>\n  <div class=\"st-source-translate\" id=\"ezdict-sticker\">\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.isLoading : depth0),{"name":"if","hash":{},"fn":this.program(8, data, 0),"inverse":this.program(10, data, 0),"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.error : depth0),{"name":"if","hash":{},"fn":this.program(5, data, 0),"inverse":this.program(7, data, 0),"data":data})) != null ? stack1 : "")
     + "  </div>\n  <div class=\"st-source-translate\" id=\"best-sticker\"></div>\n</div>\n";
 },"useData":true});
 })();
