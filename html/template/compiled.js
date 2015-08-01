@@ -24,9 +24,10 @@ templates['tooltip'] = template({"1":function(depth0,helpers,partials,data) {
 },"7":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.isLoading : depth0),{"name":"if","hash":{},"fn":this.program(8, data, 0),"inverse":this.program(10, data, 0),"data":data})) != null ? stack1 : "");
+  return "      "
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.isLoading : depth0),{"name":"if","hash":{},"fn":this.program(8, data, 0),"inverse":this.program(10, data, 0),"data":data})) != null ? stack1 : "");
 },"8":function(depth0,helpers,partials,data) {
-    return "        <p>"
+    return "indentation\n        <p>"
     + this.escapeExpression((helpers.t || (depth0 && depth0.t) || helpers.helperMissing).call(depth0,"loading",{"name":"t","hash":{},"data":data}))
     + "</p>\n";
 },"10":function(depth0,helpers,partials,data) {
@@ -38,7 +39,7 @@ templates['tooltip'] = template({"1":function(depth0,helpers,partials,data) {
 
   return "          <ul>\n"
     + ((stack1 = helpers.each.call(depth0,((stack1 = ((stack1 = (depth0 != null ? depth0.translation : depth0)) != null ? stack1.ya_dict : stack1)) != null ? stack1.def : stack1),{"name":"each","hash":{},"fn":this.program(12, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "          </ul>indentation level\n";
+    + "          </ul>\n";
 },"12":function(depth0,helpers,partials,data) {
     var stack1;
 
