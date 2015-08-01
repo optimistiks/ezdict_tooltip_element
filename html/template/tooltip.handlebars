@@ -1,6 +1,16 @@
 <div class="slide-down-btn"><i class="icon-circleup"></i></div>
 <div class="counter warning5" title="{{ t 'counterTitle' }}">
-  <p id="counter">{{#if translation.translation_history}}{{ translation.translation_history.count }}{{else}}-{{/if}}</p>
+  <p id="counter">
+    {{#if isLoading}}
+      -
+    {{else}}
+      {{#if translation.translation_history}}
+        {{ translation.translation_history.count }}
+      {{else}}
+        -
+      {{/if}}
+    {{/if}}
+  </p>
 </div>
 <div class="control-panel left">
   <div class="st-btn-wrap" title="{{ t 'editTranslationTitle' }}">
