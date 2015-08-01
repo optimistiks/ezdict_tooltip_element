@@ -8,10 +8,10 @@ templates['content'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":functio
     + "</div>\n";
 },"usePartial":true,"useData":true});
 templates['tooltip'] = template({"1":function(depth0,helpers,partials,data) {
-    var stack1;
+    var helper;
 
   return "      "
-    + this.escapeExpression(this.lambda(((stack1 = ((stack1 = (depth0 != null ? depth0.translation : depth0)) != null ? stack1.translation_history : stack1)) != null ? stack1.count : stack1), depth0))
+    + this.escapeExpression(((helper = (helper = helpers.counter || (depth0 != null ? depth0.counter : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"counter","hash":{},"data":data}) : helper)))
     + "\n";
 },"3":function(depth0,helpers,partials,data) {
     return "      -\n";
@@ -90,9 +90,7 @@ templates['tooltip'] = template({"1":function(depth0,helpers,partials,data) {
   return "<div class=\"slide-down-btn\"><i class=\"icon-circleup\"></i></div>\n<div class=\"counter warning5\" title=\""
     + alias2((helpers.t || (depth0 && depth0.t) || alias1).call(depth0,"counterTitle",{"name":"t","hash":{},"data":data}))
     + "\">\n  <p id=\"counter\">\n"
-    + ((stack1 = helpers['if'].call(depth0,((stack1 = (depth0 != null ? depth0.translation : depth0)) != null ? stack1.translation_history : stack1),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.isLoading : depth0),{"name":"if","hash":{},"fn":this.program(3, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.error : depth0),{"name":"if","hash":{},"fn":this.program(3, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.counter : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
     + "  </p>\n</div>\n<div class=\"control-panel left\">\n  <div class=\"st-btn-wrap\" title=\""
     + alias2((helpers.t || (depth0 && depth0.t) || alias1).call(depth0,"editTranslationTitle",{"name":"t","hash":{},"data":data}))
     + "\">\n    <div class=\"st-btn edit\"><i class=\"icon-pen\"></i></div>\n  </div>\n  <div class=\"st-btn-wrap\" title=\""

@@ -1,15 +1,9 @@
 <div class="slide-down-btn"><i class="icon-circleup"></i></div>
 <div class="counter warning5" title="{{ t 'counterTitle' }}">
   <p id="counter">
-    {{#if translation.translation_history}}
-      {{ translation.translation_history.count }}
+    {{#if counter}}
+      {{ counter }}
     {{else}}
-      -
-    {{/if}}
-    {{#if isLoading}}
-      -
-    {{/if}}
-    {{#if error}}
       -
     {{/if}}
   </p>

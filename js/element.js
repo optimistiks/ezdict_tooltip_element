@@ -137,16 +137,19 @@ ezdictTooltipElement.register = function () {
           },
 
           setIsLoading: function (isLoading) {
+            this.viewData.counter = null;
             this.viewData.isLoading = !!isLoading;
             return this;
           },
 
           setTranslation: function (translation) {
+            this.viewData.counter = translation.translation_history.count;
             this.viewData.translation = translation;
             return this;
           },
 
           setError: function (error) {
+            this.viewData.counter = null;
             this.viewData.error = error;
             return this;
           },
