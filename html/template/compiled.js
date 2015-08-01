@@ -32,13 +32,13 @@ templates['tooltip'] = template({"1":function(depth0,helpers,partials,data) {
 },"10":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = helpers['if'].call(depth0,((stack1 = (depth0 != null ? depth0.translation : depth0)) != null ? stack1.ya_dict : stack1),{"name":"if","hash":{},"fn":this.program(11, data, 0),"inverse":this.program(21, data, 0),"data":data})) != null ? stack1 : "");
+  return ((stack1 = helpers['if'].call(depth0,((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.translation : depth0)) != null ? stack1.ya_dict : stack1)) != null ? stack1.def : stack1)) != null ? stack1.length : stack1),{"name":"if","hash":{},"fn":this.program(11, data, 0),"inverse":this.program(21, data, 0),"data":data})) != null ? stack1 : "");
 },"11":function(depth0,helpers,partials,data) {
     var stack1;
 
   return "          <ul>\n"
     + ((stack1 = helpers.each.call(depth0,((stack1 = ((stack1 = (depth0 != null ? depth0.translation : depth0)) != null ? stack1.ya_dict : stack1)) != null ? stack1.def : stack1),{"name":"each","hash":{},"fn":this.program(12, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "          </ul>\n";
+    + "          </ul>indentation level\n";
 },"12":function(depth0,helpers,partials,data) {
     var stack1;
 

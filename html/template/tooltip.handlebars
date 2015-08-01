@@ -39,7 +39,7 @@
       {{#if isLoading}}
         <p>{{ t 'loading' }}</p>
       {{else}}
-        {{#if translation.ya_dict}}
+        {{#if translation.ya_dict.def.length}}
           <ul>
             {{#each translation.ya_dict.def}}
               <li>
@@ -58,7 +58,7 @@
                 {{/each}}
               </li>
             {{/each}}
-          </ul>
+          </ul>indentation level
         {{else}}
           <p>{{ translation.translation }}</p>
         {{/if}}
