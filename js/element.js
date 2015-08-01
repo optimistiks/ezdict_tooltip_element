@@ -65,6 +65,7 @@ ezdictTooltipElement.register = function () {
         lifecycle: {
           // Fires when an instance of the element is created
           created: function () {
+            this.viewData = {};
           },
           // Fires when an instance was inserted into the document
           inserted: function () {
@@ -122,7 +123,7 @@ ezdictTooltipElement.register = function () {
               }
             });
 
-            this.$shadowRoot.find('#close_sticker').on('click', function () {
+            this.$shadowRoot.find('#sticker').on('#close_sticker', 'click', function () {
               element.$shadowRoot.find('#sticker').hide();
             }.bind(this));
 
@@ -135,17 +136,21 @@ ezdictTooltipElement.register = function () {
             return this;
           },
 
-          setTranslation: function (translation) {
-            ezdictTooltipElement.getTooltipHtml(translation).done(function (html) {
-              this.$shadowRoot.find('#sticker').html(html);
-            }.bind(this));
-            // this.$shadowRoot.find('#ezdict-sticker').text(translation);
+          setIsLoading: function (isLoading) {
+            this.viewData.isLoading = !!isLoading;
             return this;
           },
 
-          setCounter: function (count) {
-            this.$shadowRoot.find('#counter').text(count);
+          setTranslation: function (translation) {
+            this.viewData.translation = translation;
             return this;
+          },
+
+          redraw: function() {
+            ezdictTooltipElement.getTooltipHtml(this.viewData).done(function (html) {
+              this.$shadowRoot.find('#sticker').html(html);
+              this.init();
+            }.bind(this));
           },
 
           setTop: function (top) {

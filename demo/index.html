@@ -166,8 +166,9 @@
             ]
           }
         };
-
         tooltip.setTranslation(translation);
+
+        tooltip.redraw();
         tooltip.show();
       });
       document.body.appendChild(document.createElement('ezdict-tooltip-element'));
