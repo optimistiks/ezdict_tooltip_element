@@ -35,7 +35,139 @@
         tooltip.init();
         tooltip.setTop('50%');
         tooltip.setLeft('50%');
-        tooltip.setTranslation('Hello world');
+
+        var translation = {
+          "translation_history": {
+            "user": 1,
+            "string": "citizen",
+            "count": 1
+          },
+          "translation": "гражданин",
+          "ya_dict": {
+            "head": {},
+            "def": [
+              {
+                "text": "citizen",
+                "tr": [
+                  {
+                    "anm": "одуш",
+                    "syn": [
+                      {
+                        "anm": "одуш",
+                        "text": "житель",
+                        "pos": "существительное",
+                        "gen": "м"
+                      },
+                      {
+                        "anm": "одуш",
+                        "text": "горожанин",
+                        "pos": "существительное",
+                        "gen": "м"
+                      },
+                      {
+                        "anm": "одуш",
+                        "text": "гражданка",
+                        "pos": "существительное",
+                        "gen": "ж"
+                      },
+                      {
+                        "anm": "одуш",
+                        "text": "подданный",
+                        "pos": "существительное",
+                        "gen": "м"
+                      }
+                    ],
+                    "pos": "существительное",
+                    "ex": [
+                      {
+                        "text": "american citizen",
+                        "tr": [
+                          {
+                            "text": "американский гражданин"
+                          }
+                        ]
+                      },
+                      {
+                        "text": "russian citizen",
+                        "tr": [
+                          {
+                            "text": "житель россии"
+                          }
+                        ]
+                      },
+                      {
+                        "text": "ordinary citizens",
+                        "tr": [
+                          {
+                            "text": "простые горожане"
+                          }
+                        ]
+                      },
+                      {
+                        "text": "citizen of Latvia",
+                        "tr": [
+                          {
+                            "text": "гражданка Латвии"
+                          }
+                        ]
+                      },
+                      {
+                        "text": "foreign citizen",
+                        "tr": [
+                          {
+                            "text": "иностранный подданный"
+                          }
+                        ]
+                      }
+                    ],
+                    "text": "гражданин",
+                    "gen": "м",
+                    "mean": [
+                      {
+                        "text": "citizenry"
+                      },
+                      {
+                        "text": "inhabitant"
+                      },
+                      {
+                        "text": "dweller"
+                      },
+                      {
+                        "text": "subject"
+                      }
+                    ]
+                  },
+                  {
+                    "anm": "одуш",
+                    "text": "горожанка",
+                    "pos": "существительное",
+                    "gen": "ж"
+                  }
+                ],
+                "pos": "noun",
+                "ts": "ˈsɪtɪzn"
+              },
+              {
+                "text": "citizen",
+                "tr": [
+                  {
+                    "text": "штатский",
+                    "pos": "прилагательное",
+                    "mean": [
+                      {
+                        "text": "civilian"
+                      }
+                    ]
+                  }
+                ],
+                "pos": "adjective",
+                "ts": "ˈsɪtɪzn"
+              }
+            ]
+          }
+        };
+
+        tooltip.setTranslation(translation);
         tooltip.show();
       });
       document.body.appendChild(document.createElement('ezdict-tooltip-element'));

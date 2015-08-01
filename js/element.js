@@ -16,15 +16,37 @@ ezdictTooltipElement.setPathPrefix = function (path) {
   this.pathPrefix = path;
 };
 
-ezdictTooltipElement.getHtml = function () {
+ezdictTooltipElement.getHtml = function (viewData) {
+  viewData = viewData || {};
   var deferred = $.Deferred();
 
   if (this.debug) {
-    $.get('../html/template/content.handlebars').done(function (template) {
-      deferred.resolve(Handlebars.compile(template)());
-    })
+    var tooltip = $.get('../html/template/tooltip.handlebars');
+    var content = $.get('../html/template/content.handlebars');
+    // tooltip and content are arguments resolved for the tooltip and content ajax requests, respectively.
+    // Each argument is an array with the following structure: [ data, statusText, jqXHR ]
+    $.when(tooltip, content).done(function (tooltip, content) {
+      Handlebars.registerPartial('tooltip', tooltip[0]);
+      deferred.resolve(Handlebars.compile(content[0])(viewData));
+    });
   } else {
-    deferred.resolve(Handlebars.templates.content());
+    Handlebars.registerPartial('tooltip', Handlebars.templates.tooltip);
+    deferred.resolve(Handlebars.templates.content(viewData));
+  }
+
+  return deferred.promise();
+};
+
+ezdictTooltipElement.getTooltipHtml = function (viewData) {
+  viewData = viewData || {};
+  var deferred = $.Deferred();
+
+  if (this.debug) {
+    $.get('../html/template/tooltip.handlebars').done(function (tooltip) {
+      deferred.resolve(Handlebars.compile(tooltip)(viewData));
+    });
+  } else {
+    deferred.resolve(Handlebars.templates.tooltip(viewData));
   }
 
   return deferred.promise();
@@ -114,7 +136,10 @@ ezdictTooltipElement.register = function () {
           },
 
           setTranslation: function (translation) {
-            this.$shadowRoot.find('#ezdict-sticker').text(translation);
+            ezdictTooltipElement.getTooltipHtml(translation).done(function (html) {
+              this.$shadowRoot.find('#sticker').html(html);
+            }.bind(this));
+            // this.$shadowRoot.find('#ezdict-sticker').text(translation);
             return this;
           },
 
