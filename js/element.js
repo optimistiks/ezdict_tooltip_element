@@ -137,7 +137,7 @@ ezdictTooltipElement.register = function () {
               }
             });
 
-            this.$shadowRoot.find('#sticker').on('#close_sticker', 'click', function () {
+            this.$shadowRoot.find('#close_sticker').on('click', function () {
               element.$shadowRoot.find('#sticker').hide();
             }.bind(this));
 
