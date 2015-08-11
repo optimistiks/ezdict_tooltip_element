@@ -27,9 +27,11 @@
 
   <script>
     $(document).ready(function () {
+
       ezdictTooltipElement.setDebug(true);
       ezdictTooltipElement.setLocale('en');
       ezdictTooltipElement.register();
+
       xtag.addEvent(window, 'ezdict-tooltip-element_inserted', function () {
         var tooltip = document.querySelector('ezdict-tooltip-element');
         tooltip.setJquery($);
@@ -172,6 +174,10 @@
 
         tooltip.redraw();
         tooltip.show();
+
+        xtag.addEvent(tooltip, 'ezdict-tooltip-element_add-to-learning', function () {
+          console.log('add-to-learning');
+        });
       });
       document.body.appendChild(document.createElement('ezdict-tooltip-element'));
     })
