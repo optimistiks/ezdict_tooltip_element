@@ -50,11 +50,15 @@ templates['tooltip'] = template({"1":function(depth0,helpers,partials,data) {
 
   return ((stack1 = helpers['if'].call(depth0,((stack1 = ((stack1 = (depth0 != null ? depth0.ya_dict : depth0)) != null ? stack1.def : stack1)) != null ? stack1.length : stack1),{"name":"if","hash":{},"fn":this.program(17, data, 0),"inverse":this.program(27, data, 0),"data":data})) != null ? stack1 : "");
 },"17":function(depth0,helpers,partials,data) {
-    var stack1;
+    var stack1, alias1=helpers.helperMissing, alias2=this.escapeExpression;
 
   return "          <div>\n            <ul>\n"
     + ((stack1 = helpers.each.call(depth0,((stack1 = (depth0 != null ? depth0.ya_dict : depth0)) != null ? stack1.def : stack1),{"name":"each","hash":{},"fn":this.program(18, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "            </ul>\n            <p>Реализовано с помощью сервиса <a href=\"http://api.yandex.ru/dictionary/\" target=\"_blank\">\"Яндекс.Словарь\"</a></p>\n          </div>\n";
+    + "            </ul>\n            <p>"
+    + alias2((helpers.t || (depth0 && depth0.t) || alias1).call(depth0,"yaDictDisclaimer",{"name":"t","hash":{},"data":data}))
+    + "\n              <a href=\"http://api.yandex.ru/dictionary/\" target=\"_blank\">\""
+    + alias2((helpers.t || (depth0 && depth0.t) || alias1).call(depth0,"yaDictBrand",{"name":"t","hash":{},"data":data}))
+    + "\"</a>\n            </p>\n          </div>\n";
 },"18":function(depth0,helpers,partials,data) {
     var stack1;
 

@@ -64,7 +64,9 @@
                 </li>
               {{/each}}
             </ul>
-            <p>Реализовано с помощью сервиса <a href="http://api.yandex.ru/dictionary/" target="_blank">"Яндекс.Словарь"</a></p>
+            <p>{{ t 'yaDictDisclaimer' }}
+              <a href="http://api.yandex.ru/dictionary/" target="_blank">"{{ t 'yaDictBrand' }}"</a>
+            </p>
           </div>
         {{else}}
           <p>{{ translation }}</p>
