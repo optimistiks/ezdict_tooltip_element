@@ -80,6 +80,7 @@ ezdictTooltipElement.register = function () {
           // Fires when an instance of the element is created
           created: function () {
             this.viewData = {};
+            this.state = null;
           },
           // Fires when an instance was inserted into the document
           inserted: function () {
@@ -100,6 +101,8 @@ ezdictTooltipElement.register = function () {
           },
 
           init: function () {
+            this.$shadowRoot = this.jq(this.shadowRoot);
+
             var element = this;
             var $ = this.jq;
 
@@ -141,41 +144,30 @@ ezdictTooltipElement.register = function () {
               this.$shadowRoot.find('#sticker').hide();
             }.bind(this));
 
-            this.$shadowRoot.find('#add_to_learning').on('click', function () {
-              if (!this.getLearning()) {
-                xtag.fireEvent(this, this._getEventName('add-to-learning'));
-                this.setLearning(true);
-                this.redraw();
-              }
-            }.bind(this));
-
             return this;
           },
 
           setJquery: function (jQuery) {
             this.jq = jQuery;
-            this.$shadowRoot = jQuery(this.shadowRoot);
             return this;
           },
 
-          setIsLoading: function (isLoading) {
-            if (isLoading) {
-              this.viewData.count = null;
-            }
-            this.viewData.isLoading = !!isLoading;
+          setStateLoading: function () {
+            this.state = 'loading';
             return this;
           },
 
-          setError: function (error) {
-            if (error) {
-              this.viewData.count = null;
-            }
+          setStateError: function (error) {
+            this.state = 'error';
             this.viewData.error = error;
             return this;
           },
 
-          setTranslation: function (translation) {
+          setStateTranslation: function (translation) {
+            this.state = 'translation';
+
             this.viewData.learning = translation.learning;
+            this.viewData.card = translation.card;
             this.viewData.ya_dict = translation.ya_dict;
             this.viewData.history = translation.translation_history;
             this.viewData.count = translation.translation_history.count;
@@ -184,16 +176,15 @@ ezdictTooltipElement.register = function () {
             return this;
           },
 
-          getLearning: function () {
-            return this.viewData.learning;
-          },
-
-          setLearning: function (learning) {
-            this.viewData.learning = learning;
-            return this;
-          },
-
           redraw: function () {
+            if (!this.state) {
+              throw new Error('State is not set');
+            }
+
+            // ease the state check in handlebars templates
+            this.viewData.state = {};
+            this.viewData.state[this.state] = true;
+
             ezdictTooltipElement.getTooltipHtml(this.viewData).done(function (html) {
               this.$shadowRoot.find('#sticker').html(html);
               this.init();
