@@ -144,6 +144,33 @@ ezdictTooltipElement.register = function () {
                             this.$shadowRoot.find('#sticker').hide();
                         }.bind(this));
 
+                        this.$shadowRoot.find('#create_card, #edit_card').on('click', function (e) {
+                            var el = $(e.currentTarget);
+
+                            var clickCount = el.data('clicked') || 0;
+                            ++clickCount;
+
+                            el.data('clicked', clickCount);
+
+                            if (clickCount === 1) {
+                                el.find('.st-btn_dummy').hide();
+                                el.find('.st-btn_link').show();
+                            }
+
+                            if (clickCount === 2) {
+                                el.data('clicked', 0);
+                                el.find('.st-btn_dummy').show();
+                                el.find('.st-btn_link').hide();
+                            }
+                        }.bind(this));
+
+                        this.$shadowRoot.find('#create_card, #edit_card').on('mouseleave', function (e) {
+                            var el = $(e.currentTarget);
+                            el.data('clicked', 0);
+                            el.find('.st-btn_dummy').show();
+                            el.find('.st-btn_link').hide();
+                        }.bind(this));
+
                         return this;
                     },
 
@@ -160,6 +187,11 @@ ezdictTooltipElement.register = function () {
                     setStateError: function (error) {
                         this.state = 'error';
                         this.viewData.error = error;
+                        return this;
+                    },
+
+                    setCardUrl: function (url) {
+                        this.viewData.cardUrl = url;
                         return this;
                     },
 

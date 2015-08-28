@@ -41,6 +41,7 @@
 
                 $.get('translation.json').done(function (translation) {
                     tooltip.setStateTranslation(translation);
+                    tooltip.setCardUrl('asdasdasd');
                     tooltip.redraw();
                     tooltip.show();
                 });

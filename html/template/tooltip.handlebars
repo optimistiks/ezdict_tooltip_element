@@ -13,15 +13,25 @@
 <div class="control-panel left">
     {{#if state.translation}}
         {{#if card}}
-            <div class="st-btn-wrap" title="{{ t 'editTranslationTitle' }}">
-                <div class="st-btn edit"><i class="icon-pen"></i></div>
+            <div id="edit_card" class="st-btn-wrap" title="{{ t 'editTranslationTitle' }}">
+                <div class="st-btn edit st-btn_dummy"><i class="icon-pen"></i></div>
+                <div class="st-btn edit st-btn_link">
+                    <a class="st-btn-link" href="{{cardUrl}}" target="_blank">
+                        <i class="icon-pen"></i>
+                    </a>
+                </div>
             </div>
             <div id="add_to_learning" class="st-btn-wrap vrashi" title="{{ t 'addToLearningTitle' }}">
                 <div class="st-btn add-to-learning">Aa</div>
             </div>
         {{else}}
             <div id="create_card" class="st-btn-wrap" title="{{ t 'addTranslationTitle' }}">
-                <div class="st-btn add-new"><i class="icon-createfile"></i></div>
+                <div class="st-btn add-new st-btn_dummy"><i class="icon-createfile"></i></div>
+                <div class="st-btn add-new st-btn_link">
+                    <a class="st-btn-link" href="{{cardUrl}}" target="_blank">
+                        <i class="icon-createfile"></i>
+                    </a>
+                </div>
             </div>
         {{/if}}
     {{/if}}
