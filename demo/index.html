@@ -1,57 +1,57 @@
 <!doctype html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <title>&lt;ezdict-tooltip-element&gt;</title>
-  <style>
-    @font-face {
-      font-family: 'WebHostingHub-Glyphs';
-      src: url('../font/webhostinghub-glyphs.eot');
-      src: url('../font/webhostinghub-glyphs.eot?#iefix') format('embedded-opentype'),
-      url('../font/webhostinghub-glyphs.ttf') format('truetype');
-      font-weight: normal;
-      font-style: normal;
-      -moz-font-feature-settings: "calt=0,liga=0";
-    }
-  </style>
-  <script type="text/javascript" src="../bower_components/jquery/jquery.min.js"></script>
-  <script type="text/javascript" src="../bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <meta charset="utf-8">
+    <title>&lt;ezdict-tooltip-element&gt;</title>
+    <style>
+        @font-face {
+            font-family: 'WebHostingHub-Glyphs';
+            src: url('../font/webhostinghub-glyphs.eot');
+            src: url('../font/webhostinghub-glyphs.eot?#iefix') format('embedded-opentype'),
+            url('../font/webhostinghub-glyphs.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            -moz-font-feature-settings: "calt=0,liga=0";
+        }
+    </style>
+    <script type="text/javascript" src="../bower_components/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="../bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 
-  <script type="text/javascript" src="../bower_components/handlebars/handlebars.min.js"></script>
-  <script type="text/javascript" src="../bower_components/i18next/i18next.min.js"></script>
-  <script type="text/javascript" src="../js/handlebars-helper.js"></script>
+    <script type="text/javascript" src="../bower_components/handlebars/handlebars.min.js"></script>
+    <script type="text/javascript" src="../bower_components/i18next/i18next.min.js"></script>
+    <script type="text/javascript" src="../js/handlebars-helper.js"></script>
 
-  <script src="../bower_components/x-tag-core/lib/webcomponents-lite.js"></script>
-  <script src="../bower_components/x-tag-core/src/core.js"></script>
-  <script src="../js/element.js"></script>
+    <script src="../bower_components/x-tag-core/lib/webcomponents-lite.js"></script>
+    <script src="../bower_components/x-tag-core/src/core.js"></script>
+    <script src="../js/element.js"></script>
 
-  <script>
-    $(document).ready(function () {
+    <script>
+        $(document).ready(function () {
 
-      ezdictTooltipElement.setDebug(true);
-      ezdictTooltipElement.setLocale('ru');
-      ezdictTooltipElement.register();
+            ezdictTooltipElement.setDebug(true);
+            ezdictTooltipElement.setLocale('ru');
+            ezdictTooltipElement.register();
 
-      xtag.addEvent(window, 'ezdict-tooltip-element_inserted', function () {
-        var tooltip = document.querySelector('ezdict-tooltip-element');
-        tooltip.setJquery($);
-        tooltip.init();
-        tooltip.setTop('50%');
-        tooltip.setLeft('50%');
+            xtag.addEvent(window, 'ezdict-tooltip-element_inserted', function () {
+                var tooltip = document.querySelector('ezdict-tooltip-element');
+                tooltip.setJquery($);
+                tooltip.init();
+                tooltip.setTop('50%');
+                tooltip.setLeft('50%');
 
-        $.get('translation.json').done(function (translation) {
-          tooltip.setStateTranslation(translation);
-          tooltip.redraw();
-          tooltip.show();
-        });
+                $.get('translation.json').done(function (translation) {
+                    tooltip.setStateTranslation(translation);
+                    tooltip.redraw();
+                    tooltip.show();
+                });
 
-        xtag.addEvent(tooltip, 'ezdict-tooltip-element_add-to-learning', function () {
-          console.log('add-to-learning');
-        });
-      });
-      document.body.appendChild(document.createElement('ezdict-tooltip-element'));
-    })
-  </script>
+                xtag.addEvent(tooltip, 'ezdict-tooltip-element_add-to-learning', function () {
+                    console.log('add-to-learning');
+                });
+            });
+            document.body.appendChild(document.createElement('ezdict-tooltip-element'));
+        })
+    </script>
 </head>
 <body>
 </body>
