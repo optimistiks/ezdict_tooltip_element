@@ -6,6 +6,17 @@
     "count": 4
   },
   "translation": "гражданин",
+  "card": {
+    "article": "some article",
+    "card_meanings": [
+      {
+        "text": "meaning1"
+      },
+      {
+        "text": "meaning2"
+      }
+    ]
+  },
   "ya_dict": {
     "head": {},
     "def": [
