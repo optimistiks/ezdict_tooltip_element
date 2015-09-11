@@ -64,7 +64,7 @@ templates['tooltip'] = template({"1":function(depth0,helpers,partials,data) {
 
   return "                <div>\n                    <p>"
     + this.escapeExpression(this.lambda(((stack1 = (depth0 != null ? depth0.card : depth0)) != null ? stack1.article : stack1), depth0))
-    + "</p>\n                </div>\n                <ul>\n"
+    + "</p>\n                </div>\n                <br>\n                <ul>\n"
     + ((stack1 = helpers.each.call(depth0,((stack1 = (depth0 != null ? depth0.card : depth0)) != null ? stack1.card_meanings : stack1),{"name":"each","hash":{},"fn":this.program(20, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "                </ul>\n";
 },"20":function(depth0,helpers,partials,data) {
@@ -154,7 +154,6 @@ templates['tooltip'] = template({"1":function(depth0,helpers,partials,data) {
     + ((stack1 = helpers['if'].call(depth0,((stack1 = (depth0 != null ? depth0.state : depth0)) != null ? stack1.loading : stack1),{"name":"if","hash":{},"fn":this.program(14, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "\n"
     + ((stack1 = helpers['if'].call(depth0,((stack1 = (depth0 != null ? depth0.state : depth0)) != null ? stack1.error : stack1),{"name":"if","hash":{},"fn":this.program(16, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "\n"
     + ((stack1 = helpers['if'].call(depth0,((stack1 = (depth0 != null ? depth0.state : depth0)) != null ? stack1.translation : stack1),{"name":"if","hash":{},"fn":this.program(18, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "    </div>\n    <div class=\"st-source-translate\" id=\"ezdict-sticker\">\n\n"
     + ((stack1 = helpers['if'].call(depth0,((stack1 = (depth0 != null ? depth0.state : depth0)) != null ? stack1.error : stack1),{"name":"if","hash":{},"fn":this.program(16, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
