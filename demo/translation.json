@@ -8,6 +8,7 @@
   "translation": "гражданин",
   "card": {
     "article": "some article",
+    "to_study": null,
     "card_meanings": [
       {
         "text": "meaning1"
